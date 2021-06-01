@@ -8,7 +8,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .tsx || true",
-    "lint-and-fix": "eslint . --ext .tsx --fix || true",
     "prettier-format": "prettier --config .prettierrc src/**/*.tsx --write || true"
   },
   "eslintConfig": {
@@ -35,8 +34,10 @@
     "@typescript-eslint/eslint-plugin": "^4.25.0",
     "@typescript-eslint/parser": "^4.25.0",
     "eslint": "^7.27.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-no-loops": "^0.3.0",
-    "husky": "^6.0.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^4.3.8",
     "prettier": "^2.3.0"
   },
   "dependencies": {
