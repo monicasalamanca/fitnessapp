@@ -1,6 +1,6 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import logo from './logo.svg'
+import './App.css'
 
 function App(): JSX.Element {
   return (
@@ -9,7 +9,7 @@ function App(): JSX.Element {
         <img src={logo} className="App-logo" alt="logo" />
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

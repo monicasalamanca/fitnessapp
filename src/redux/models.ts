@@ -2,7 +2,7 @@ export interface IWorkout {
   id: number
   restTime: number
   workoutTime: number
-  exercises: []
+  exercises: number[]
   numReps: number
 }
 
@@ -12,7 +12,7 @@ export interface IState {
 
 export interface IAction {
   type: string
-  payload: Array<IWorkout> | any
+  payload: IWorkout[] | any
 }
 
 // /**
