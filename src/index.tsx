@@ -19,7 +19,7 @@ const unsubscribe = store.subscribe(() => {
 store.dispatch(workoutAdded(10, 30, [1, 2, 3], 6))
 store.dispatch(workoutAdded(45, 15, [1], 13))
 
-// unsubscribe()
+unsubscribe()
 
 store.dispatch({
   type: actions.WORKOUT_ADDED,
