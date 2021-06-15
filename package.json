@@ -38,10 +38,11 @@
     "eslint-plugin-no-loops": "^0.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "husky": "^4.3.8",
-    "prettier": "^2.3.0"
+    "prettier": "^2.3.0",
+    "redux-devtools-extension": "^2.13.9"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^1.5.1",
+    "@reduxjs/toolkit": "^1.6.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
