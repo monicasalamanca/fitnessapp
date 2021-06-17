@@ -1,11 +1,9 @@
-/* eslint-disable no-console */
 /* eslint-disable no-undef */
-import configureStore from './store/configureStore'
-import { workoutAdded, workoutDeleted } from './store/workouts'
-
-const store = configureStore()
+import store from './store/store'
+import { workoutAdded, workoutDeleted } from './store/workouts/actions'
 
 const unsubscribe = store.subscribe(() => {
+  /* eslint-disable no-console */
   console.log('Store changed! ', store.getState())
 })
 
