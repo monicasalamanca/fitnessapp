@@ -12,9 +12,7 @@ const store = configureStore()
 //   console.log('Store changed! ', store.getState())
 // })
 
-
 // unsubscribe()
-
 
 // console.log(store.getState())
 
@@ -27,12 +25,22 @@ const newWorkout = {
 }
 
 store.dispatch(workoutAdded(newWorkout))
-store.dispatch(workoutAdded({
-  restTime: 15,
-  workoutTime: 25,
-  exercises: [1, 2, 3],
-  numReps: 5,
-}));
+store.dispatch(
+  workoutAdded({
+    restTime: 15,
+    workoutTime: 25,
+    exercises: [1, 2, 3],
+    numReps: 5,
+  })
+)
+store.dispatch(
+  workoutAdded({
+    restTime: 10,
+    workoutTime: 45,
+    exercises: [1, 2, 3],
+    numReps: 6,
+  })
+)
 store.dispatch(workoutDeleted({ id: 1 }))
 
 console.log('STATE: ', store.getState())
