@@ -2,7 +2,7 @@
 /* eslint-disable no-undef */
 import configureStore from './store/store'
 // import { workoutAdded, workoutDeleted } from './store/workouts/actions'
-import { workoutAdded } from './store/workouts'
+import { workoutAdded, workoutDeleted } from './store/workouts'
 // import * as actions from './store/workouts'
 
 const store = configureStore()
@@ -12,15 +12,9 @@ const store = configureStore()
 //   console.log('Store changed! ', store.getState())
 // })
 
-// store.dispatch(workoutAdded(10, 30, [1, 2, 3], 6))
-// store.dispatch(workoutAdded(45, 15, [1], 13))
-// store.dispatch(workoutAdded(20, 20, [1, 2], 5))
-// store.dispatch(workoutAdded(35, 25, [1, 2, 4], 10))
 
 // unsubscribe()
 
-// store.dispatch(workoutDeleted(1))
-// store.dispatch(workoutDeleted(2))
 
 // console.log(store.getState())
 
@@ -33,5 +27,12 @@ const newWorkout = {
 }
 
 store.dispatch(workoutAdded(newWorkout))
+store.dispatch(workoutAdded({
+  restTime: 15,
+  workoutTime: 25,
+  exercises: [1, 2, 3],
+  numReps: 5,
+}));
+store.dispatch(workoutDeleted({ id: 1 }))
 
 console.log('STATE: ', store.getState())
