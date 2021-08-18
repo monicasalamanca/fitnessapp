@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable no-undef */
 import configureStore from './store/store'
-import { workoutAdded, workoutDeleted } from './store/workouts'
+import { workoutAdded, workoutDeleted, workoutUpdated } from './store/workouts'
 
 const store = configureStore()
 
@@ -37,12 +37,15 @@ store.dispatch(
     numReps: 6,
   })
 )
-store.dispatch(workoutAdded({
-  restTime: 15,
-  workoutTime: 25,
-  exercises: [1, 2, 3],
-  numReps: 5,
-}));
+store.dispatch(
+  workoutAdded({
+    restTime: 15,
+    workoutTime: 25,
+    exercises: [1, 2, 3],
+    numReps: 5,
+  })
+)
 store.dispatch(workoutDeleted({ id: 1 }))
+store.dispatch(workoutUpdated({ id: 2, numReps: 4, workoutTime: 60 }))
 
 console.log('STATE: ', store.getState())
