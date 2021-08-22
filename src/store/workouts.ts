@@ -52,3 +52,4 @@ const workoutSlice = createSlice({
 
 export const { workoutAdded, workoutDeleted, workoutUpdated } = workoutSlice.actions;
 export default workoutSlice.reducer;
+
