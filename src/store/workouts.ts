@@ -1,4 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
+import { createSelector } from 'reselect';
 
 export interface IWorkout {
   id: number
@@ -7,6 +8,10 @@ export interface IWorkout {
   exercises: number[]
   numReps: number
   isActive: boolean
+}
+
+export interface IState {
+  workouts: IWorkout[]
 }
 
 const defaultState: IWorkout[] = [];
@@ -45,5 +50,7 @@ export const { workoutAdded, workoutDeleted, workoutUpdated } = workoutSlice.act
 export default workoutSlice.reducer;
 
 // Selectors
-export const getAllActiveWorkouts = (state: IWorkout[]): IWorkout[] => (state.filter((workout: IWorkout) => workout.isActive === true));
-
+export const getAllActiveWorkouts = createSelector(
+  (state: IState) => state.workouts,
+  (workouts) => workouts.filter((workout: IWorkout) => workout.isActive === true)
+)

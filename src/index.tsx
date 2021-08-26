@@ -13,14 +13,14 @@ const store = configureStore()
 // unsubscribe()
 
 // *********************************************************************************************************
-const newWorkout = {
-  restTime: 10,
-  workoutTime: 30,
-  exercises: [1, 2, 3],
-  numReps: 6,
-}
-
-store.dispatch(workoutAdded(newWorkout))
+store.dispatch(
+  workoutAdded({
+    restTime: 10,
+    workoutTime: 30,
+    exercises: [1, 2, 3],
+    numReps: 6,
+  })
+)
 store.dispatch(
   workoutAdded({
     restTime: 15,
@@ -48,7 +48,7 @@ store.dispatch(
 store.dispatch(workoutDeleted({ id: 1 }))
 store.dispatch(workoutUpdated({ id: 2, numReps: 4, workoutTime: 60, isActive: false }))
 
-const activeWorkouts = getAllActiveWorkouts(store.getState().workouts);
+const activeWorkouts = getAllActiveWorkouts(store.getState())
 
-console.log('activeWorkouts: ', activeWorkouts);
-console.log('STATE: ', store.getState());
+console.log('activeWorkouts: ', activeWorkouts)
+console.log('STATE: ', store.getState())
