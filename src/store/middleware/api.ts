@@ -1,4 +1,5 @@
 import axios from 'axios';
+import * as actions from '../api';
 
 export interface IPayload {
   url: string
@@ -14,7 +15,7 @@ export interface IAction {
 }
 
 const api = (store: any) => (next: any) => async (action: IAction) => {
-  if (action.type !== "apiCallBegan") return next(action);
+  if (action.type !== actions.apiCallBegan.type) return next(action);
 
   next(action);
   const { url, method, data, onSuccess, onError } = action.payload;
@@ -25,9 +26,15 @@ const api = (store: any) => (next: any) => async (action: IAction) => {
       method,
       data
     });
-    store.dispatch({ type: onSuccess, payload: response.data });
+    // General
+    store.dispatch(actions.apiCallSuccess(response.data))
+    // Specific
+    if (onSuccess) store.dispatch({ type: onSuccess, payload: response.data });
   } catch(error) {
-    store.dispatch({ type: onError, payload: error });
+    // General 
+    store.dispatch(actions.apiCallFailed(error));
+    // Specific
+    if (onError) store.dispatch({ type: onError, payload: error });
   }
 }
 
