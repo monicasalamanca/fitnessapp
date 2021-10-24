@@ -14,6 +14,7 @@ import reducer, {IWorkout, workoutAdded, workoutDeleted, workoutUpdated} from '.
 //   expect(getByText(/learn/i)).toBeInTheDocument();
 // });
 
+// Tests Deleted Workout
 test('should return the state minus one workout', () => {
   const previousState = [
     {
@@ -73,16 +74,18 @@ test('should return the state minus one workout', () => {
   ])
 });
 
+// Tests Added Workout
 test('should return the state plus one', () => {
   const previousState: IWorkout[] | undefined = []
   expect(
     reducer(previousState, workoutAdded(
       { restTime:10, workoutTime:30, exercises:[1,2,3], numReps:6 }
     ))).toEqual([
-    { id:1, restTime:10, workoutTime:30, exercises:[1,2,3], numReps:6, isActive:true }
+    { id:2, restTime:10, workoutTime:30, exercises:[1,2,3], numReps:6, isActive:true }
   ])
 });
 
+// Tests Updated Workoout
 test('should return the state with the changed object', () => {
   const previousState: IWorkout[] | undefined = [
     { id:2, restTime:15, workoutTime:25, exercises:[1,2,3], numReps:5, isActive:true },
