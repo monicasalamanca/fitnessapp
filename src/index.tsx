@@ -46,13 +46,13 @@ store.dispatch(
     numReps: 5,
   })
 )
-store.dispatch(workoutDeleted({ id: 3 }));
+store.dispatch(workoutDeleted({ id: 3 }))
 store.dispatch(workoutUpdated({ id: 4, numReps: 4, workoutTime: 60, isActive: false }))
 
 store.dispatch(
   actions.apiCallBegan({
     url: '/workouts',
-    onSuccess: 'workoutsReceived'
+    onSuccess: 'workoutsReceived',
   })
 )
 

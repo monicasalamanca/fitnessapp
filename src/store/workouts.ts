@@ -11,24 +11,20 @@ export type IWorkout = {
 }
 
 export interface IState {
-  list: IWorkout[],
-  loading: false,
-  lastFetch: null
+  workouts: IWorkout[]
 }
 
 let lastId = 0;
 
 const defaultState = {
-  list: [{
+  workouts: [{
     id: ++lastId,
     restTime: 10,
     workoutTime: 40,
     exercises: [3, 4, 1, 6],
     numReps: 20,
     isActive: true
-  }],
-  loading: false,
-  lastFetch: null
+  }]
 };
   
 
@@ -36,9 +32,8 @@ const workoutSlice = createSlice({
   name: 'workout',
   initialState: defaultState,
   reducers: {
-    // workoutAdded: (state, action)
-    workoutAdded: (workouts, action) => {
-      workouts.list.push({
+    workoutAdded: (state, action) => {
+      state.workouts.push({
         id: ++lastId,
         restTime: action.payload.restTime,
         workoutTime: action.payload.workoutTime,
@@ -49,17 +44,17 @@ const workoutSlice = createSlice({
     },
     workoutDeleted: (state, action) => {
       // Construct a new array immutably
-      const newWorkouts = state.list.filter((workout: IWorkout) => workout.id !== action.payload.id);
+      const newWorkouts = state.workouts.filter((workout: IWorkout) => workout.id !== action.payload.id);
       // "Mutate" the existing state to save the new array
-      state.list = newWorkouts;
+      state.workouts = newWorkouts;
     },
-    workoutUpdated: (workouts, action) => {
-      const index = workouts.list.findIndex((workout: IWorkout) => workout.id === action.payload.id);
-      workouts.list[index].numReps = action.payload.numReps ? action.payload.numReps : workouts.list[index].numReps;
-      workouts.list[index].restTime = action.payload.restTime ? action.payload.restTime : workouts.list[index].restTime;
-      workouts.list[index].workoutTime = action.payload.workoutTime ? action.payload.workoutTime : workouts.list[index].workoutTime;
-      workouts.list[index].exercises = action.payload.exercises ? action.payload.exercises : workouts.list[index].exercises;
-      workouts.list[index].isActive = !action.payload.isActive ? action.payload.isActive : workouts.list[index].isActive;
+    workoutUpdated: (state, action) => {
+      const index = state.workouts.findIndex((workout: IWorkout) => workout.id === action.payload.id);
+      state.workouts[index].numReps = action.payload.numReps ? action.payload.numReps : state.workouts[index].numReps;
+      state.workouts[index].restTime = action.payload.restTime ? action.payload.restTime : state.workouts[index].restTime;
+      state.workouts[index].workoutTime = action.payload.workoutTime ? action.payload.workoutTime : state.workouts[index].workoutTime;
+      state.workouts[index].exercises = action.payload.exercises ? action.payload.exercises : state.workouts[index].exercises;
+      state.workouts[index].isActive = !action.payload.isActive ? action.payload.isActive : state.workouts[index].isActive;
     }
   }
 });
@@ -69,6 +64,6 @@ export default workoutSlice.reducer;
 
 // Selectors
 export const getAllActiveWorkouts = createSelector(
-  (state: IState) => state.list,
+  (state: IState) => state.workouts,
   (workouts) => workouts.filter((workout: IWorkout) => workout.isActive === true)
 )
