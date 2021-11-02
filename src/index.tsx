@@ -2,7 +2,7 @@
 /* eslint-disable no-undef */
 import configureStore from './store/store'
 import * as actions from './store/api'
-import { workoutAdded, workoutDeleted, workoutUpdated, getAllActiveWorkouts } from './store/workouts'
+import { workoutAdded, workoutDeleted, workoutUpdated } from './store/workouts'
 
 const store = configureStore()
 
