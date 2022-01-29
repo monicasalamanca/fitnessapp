@@ -1,4 +1,4 @@
-import reducer, { Exercise, exerciseAdd, exerciseDeleted } from './workouts';
+import reducer, {Exercise, exerciseAdd, exerciseDe, workoutUpdated} from './workouts';
 
 // Tests Deleted Workout
 test('should return the state minus one workout', () => {
