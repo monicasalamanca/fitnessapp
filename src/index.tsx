@@ -1,10 +1,12 @@
 /* eslint-disable no-console */
 /* eslint-disable no-undef */
-import configureStore from './store/store'
-import * as actions from './store/api'
-import { workoutAdded, workoutDeleted, workoutUpdated } from './store/workouts'
+import configureStore from "./store/store";
+// import * as actions from './store/api'
+// import { workoutAdded, workoutDeleted, workoutUpdated } from './store/workouts'
 
-const store = configureStore()
+//import reportWebVitals from './reportWebVitals';
+
+const store = configureStore();
 
 // const unsubscribe = store.subscribe(() => {
 //   /* eslint-disable no-console */
@@ -14,6 +16,7 @@ const store = configureStore()
 // unsubscribe()
 
 // *********************************************************************************************************
+/*
 store.dispatch(
   workoutAdded({
     restTime: 10,
@@ -69,3 +72,4 @@ store.dispatch(
 
 // console.log('activeWorkouts: ', activeWorkouts)
 console.log('STATE: ', store.getState())
+*/

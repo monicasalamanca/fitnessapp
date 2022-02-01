@@ -1,20 +1,24 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { StatusBar, StyleSheet, View } from "react-native";
+import HomeScreen from "./src/views/Home";
+import { Provider } from "react-redux";
+import store from "./src/store";
+
+const Styles = StyleSheet.create({
+  statusBarContainer: {
+    width: "100%",
+    height: 20,
+    backgroundColor: "black",
+  },
+});
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Hello! Aiko!! and Justin!!! and Monica too!! </Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <View style={Styles.statusBarContainer}>
+        <StatusBar barStyle="light-content" />
+      </View>
+      <HomeScreen />
+    </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
