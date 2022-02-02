@@ -12,6 +12,7 @@ import * as Colors from "../styles/colors";
 import * as Spacing from "../styles/Spacing";
 import { useTypedDispatch, useTypedSelector } from "../store";
 import { getAllActiveWorkouts } from "../store/workouts";
+import Timer from "../components/Timer";
 
 const Styles = StyleSheet.create({
   background: {
@@ -66,8 +67,9 @@ const HomeScreen: React.FC = () => {
             {workout.exercises}-{workout.restTime}
           </Text>
         ))}
-
-        <Text style={Styles.enterANumberText}>Enter workout time:</Text>
+      </View>
+      <View>
+        <Timer />
       </View>
       <View style={Styles.feedbackContainer}>
         <TouchableOpacity style={Styles.feedbackButton}>
